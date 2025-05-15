@@ -47,7 +47,6 @@ const upload = multer({
     fileSize: 100 * 1024 * 1024 // 100MB max file size
   },
   fileFilter: (req, file, cb) => {
-    // Accept video files only
     if (file.mimetype.startsWith('video/')) {
       cb(null, true);
     } else {
@@ -1291,10 +1290,6 @@ app.put('/api/admin/users/:id', authenticateJWT, authorize(['admin']), async (re
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-
-    // Find the register endpoint in your server.js file and modify it to allow role selection
-// Replace your existing registration endpoint with this one:
-
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { username, email, password, role } = req.body;
