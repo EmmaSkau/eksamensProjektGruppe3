@@ -58,7 +58,6 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   return children;
 };
 
-// Simple Layout Component that just adds a consistent container
 const PageContainer = ({ children }) => (
   <div className="container mx-auto px-4 py-8">
     {children}
