@@ -33,7 +33,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-900 text-white shadow-md">
+    <nav className="bg-white text-burgundy shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo and brand */}
@@ -44,20 +44,20 @@ const Navbar = () => {
           
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="hover:text-blue-200">Hjem</Link>
+            <Link to="/" className="hover:text-burgundy-dark">Hjem</Link>
             
             {isAuthenticated ? (
               <>
-                <Link to={getDashboardLink()} className="hover:text-blue-200">
+                <Link to={getDashboardLink()} className="hover:text-burgundy-dark">
                   {user.role === 'participant' ? 'Find spil' : 'Dashboard'}
                 </Link>
                 
                 {(user.role === 'instructor' || user.role === 'admin') && (
-                  <Link to="/create-game" className="hover:text-blue-200">Opret spil</Link>
+                  <Link to="/create-game" className="hover:text-burgundy-dark">Opret spil</Link>
                 )}
                 
                 <div className="relative group">
-                  <button className="flex items-center hover:text-blue-200">
+                  <button className="flex items-center hover:text-burgundy-dark">
                     <span>{user.username}</span>
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -79,8 +79,8 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Link to="/login" className="hover:text-blue-200">Log ind</Link>
-                <Link to="/register" className="bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded-md">Opret konto</Link>
+                <Link to="/login" className="hover:text-burgundy-900">Log ind</Link>
+                <Link to="/register" className="bg-burgundy hover:bg-burgundy-900 text-white px-4 py-2 rounded-md">Opret konto</Link>
               </>
             )}
           </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-white focus:outline-none"
+              className="text-burgundy focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
@@ -109,10 +109,10 @@ const Navbar = () => {
         
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-2 border-t border-blue-800">
+          <div className="md:hidden py-4 space-y-2 border-t border-gray-200">
             <Link 
               to="/" 
-              className="block py-2 hover:bg-blue-800 px-2 rounded"
+              className="block py-2 hover:bg-gray-100 px-2 rounded text-burgundy"
               onClick={() => setMobileMenuOpen(false)}
             >
               Hjem
@@ -122,7 +122,7 @@ const Navbar = () => {
               <>
                 <Link 
                   to={getDashboardLink()} 
-                  className="block py-2 hover:bg-blue-800 px-2 rounded"
+                  className="block py-2 hover:bg-gray-100 px-2 rounded text-burgundy"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {user.role === 'participant' ? 'Find spil' : 'Dashboard'}
@@ -131,20 +131,20 @@ const Navbar = () => {
                 {(user.role === 'instructor' || user.role === 'admin') && (
                   <Link 
                     to="/create-game" 
-                    className="block py-2 hover:bg-blue-800 px-2 rounded"
+                    className="block py-2 hover:bg-gray-100 px-2 rounded text-burgundy"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Opret spil
                   </Link>
                 )}
                 
-                <div className="border-t border-blue-800 pt-2 mt-2">
-                  <div className="px-2 py-1 text-sm text-blue-300">
+                <div className="border-t border-gray-200 pt-2 mt-2">
+                  <div className="px-2 py-1 text-sm text-gray-500">
                     Logget ind som <span className="font-medium">{user.role}</span>
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="w-full text-left py-2 hover:bg-blue-800 px-2 rounded"
+                    className="w-full text-left py-2 hover:bg-gray-100 px-2 rounded text-burgundy"
                   >
                     Log ud
                   </button>
@@ -154,14 +154,14 @@ const Navbar = () => {
               <>
                 <Link 
                   to="/login" 
-                  className="block py-2 hover:bg-blue-800 px-2 rounded"
+                  className="block py-2 hover:bg-gray-100 px-2 rounded text-burgundy"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Log ind
                 </Link>
                 <Link 
                   to="/register" 
-                  className="block py-2 hover:bg-blue-800 px-2 rounded"
+                  className="block py-2 hover:bg-gray-100 px-2 rounded text-burgundy"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Opret konto
